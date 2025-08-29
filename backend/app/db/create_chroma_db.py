@@ -9,7 +9,7 @@ print(f'\ncwd: {os.getcwd()}\n')
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-path = os.getcwd() + "/backend/db/chroma_db"
+path = os.getcwd() + "/db/chroma_db"
 # Create Chroma client
 chroma_client = chromadb.PersistentClient(path=path)
 
@@ -26,7 +26,7 @@ collection = chroma_client.get_or_create_collection(
 )
 
 # Load JSONL file
-file_path = os.getcwd() + "/backend/db/combined_dataset.json"
+file_path = os.getcwd() + "/db/combined_dataset.json"
 ids = []
 documents = []
 metadatas = []

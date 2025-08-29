@@ -1,0 +1,108 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+function App() {
+  const [question, setQuestion] = useState("");
+  const [chatHistory, setChatHistory] = useState([]); // full conversation
+  const [userId, setUserId] = useState(null); // comes from login or localStorage
+  const [answerLoading, setAnswerLoading] = useState(false);
+
+  // On component mount, check localStorage for userId
+  useEffect(() => {
+    let storedUserId = localStorage.getItem("user_id");
+    if (!storedUserId) {
+      // Generate a new one for demonstration (replace with login in production)
+      storedUserId = "user_" + Math.random().toString(36).substring(2, 10);
+      localStorage.setItem("user_id", storedUserId);
+    }
+    setUserId(storedUserId);
+
+    // Optionally, fetch past conversation for this user
+    fetchHistory(storedUserId);
+  }, []);
+
+  // Fetch past conversation from backend
+  const fetchHistory = async (uid) => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/history/${uid}`);
+      setChatHistory(response.data);
+    } catch (err) {
+      console.error("Error fetching history:", err);
+    }
+  };
+
+  // Ask a new question
+  const askQuestion = async () => {
+    if (!question.trim()) return;
+    setAnswerLoading(true);
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/query", {
+        question,
+        user_id: userId,
+      });
+      console.log("userid:",userId);
+      const newTurn = { question, answer: response.data.answer };
+      setChatHistory((prev) => [...prev, newTurn]);
+      setQuestion("");
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setAnswerLoading(false);
+    }
+  };
+
+  return (
+    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
+      <h1>Chat with Advice Assistant</h1>
+
+      <div
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+          minHeight: "300px",
+          maxHeight: "500px",
+          overflowY: "auto",
+          marginBottom: "10px",
+          borderRadius: "8px",
+          backgroundColor: "#f9f9f9",
+        }}
+      >
+        {chatHistory.length === 0 && <p>No conversation yet.</p>}
+        {chatHistory.map((turn, idx) => (
+          <div key={idx} style={{ marginBottom: "15px" }}>
+            <p>
+              <strong>You:</strong> {turn.question}
+            </p>
+            <p>
+              <strong>Assistant:</strong> {turn.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <input
+        type="text"
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="Type your question..."
+        style={{ width: "80%", padding: "8px", borderRadius: "5px" }}
+        onKeyDown={(e) => e.key === "Enter" && askQuestion()}
+        disabled={answerLoading}
+      />
+      <button
+        onClick={askQuestion}
+        style={{
+          padding: "8px 15px",
+          marginLeft: "5px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        disabled={answerLoading}
+      >
+        {answerLoading ? "Loading..." : "Ask"}
+      </button>
+    </div>
+  );
+}
+
+export default App;
