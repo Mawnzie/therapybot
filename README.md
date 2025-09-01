@@ -46,9 +46,9 @@ The frontend is developed with:
 2. Set up the backend:
     ```cd backend
     pip install -r requirements.txt
-    uvicorn main:app --reload
+    uvicorn app.main:app --reload
 
 3. Set up the frontend:
     ```cd frontend
     npm install
-    npm start
+    npm run dev

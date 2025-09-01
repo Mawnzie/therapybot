@@ -4,6 +4,9 @@ chroma_db/
 
 venv/
 
+config.py
+
+
 __pycache__/
 *.py[cod]
 

@@ -15,6 +15,7 @@ function App() {
       storedUserId = "user_" + Math.random().toString(36).substring(2, 10);
       localStorage.setItem("user_id", storedUserId);
     }
+    //setUserId("mans");
     setUserId(storedUserId);
 
     // Optionally, fetch past conversation for this user
@@ -24,7 +25,7 @@ function App() {
   // Fetch past conversation from backend
   const fetchHistory = async (uid) => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/history/${uid}`);
+      const response = await axios.get(`http://127.0.0.1:8000/chat/history/${uid}`);
       setChatHistory(response.data);
     } catch (err) {
       console.error("Error fetching history:", err);
@@ -36,7 +37,7 @@ function App() {
     if (!question.trim()) return;
     setAnswerLoading(true);
     try {
-      const response = await axios.post("http://127.0.0.1:8000/query", {
+      const response = await axios.post("http://127.0.0.1:8000/chat/query", {
         question,
         user_id: userId,
       });
@@ -68,15 +69,13 @@ function App() {
         }}
       >
         {chatHistory.length === 0 && <p>No conversation yet.</p>}
-        {chatHistory.map((turn, idx) => (
-          <div key={idx} style={{ marginBottom: "15px" }}>
-            <p>
-              <strong>You:</strong> {turn.question}
-            </p>
-            <p>
-              <strong>Assistant:</strong> {turn.answer}
-            </p>
-          </div>
+        {chatHistory
+          .filter(turn => turn.question || turn.answer) // only render non-empty turns
+          .map((turn, idx) => (
+            <div key={idx} style={{ marginBottom: "15px" }}>
+              {turn.question && <p><strong>You:</strong> {turn.question}</p>}
+              {turn.answer && <p><strong>Assistant:</strong> {turn.answer}</p>}
+            </div>
         ))}
       </div>
 
