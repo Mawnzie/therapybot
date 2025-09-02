@@ -12,15 +12,20 @@ function Chat() {
     let storedUserName = localStorage.getItem("username");
     
     setUserName(storedUserName);
+    const token = localStorage.getItem("token"); // get token
 
     // Optionally, fetch past conversation for this user
-    fetchHistory(storedUserName);
+    fetchHistory(storedUserName,token);
   }, []);
 
   // Fetch past conversation from backend
-  const fetchHistory = async (uid) => {
+  const fetchHistory = async (userName,token) => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/chat/history/${uid}`);
+      const response = await axios.get(`http://127.0.0.1:8000/chat/history/${userName}`, {
+      headers: {
+        Authorization: `Bearer ${token}` // ✅ send token
+      }
+    });
       setChatHistory(response.data);
     } catch (err) {
       console.error("Error fetching history:", err);
