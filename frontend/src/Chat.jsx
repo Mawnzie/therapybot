@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 function Chat() {
   const [question, setQuestion] = useState("");
   const [chatHistory, setChatHistory] = useState([]); // full conversation
   const [answerLoading, setAnswerLoading] = useState(false);
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState(null);
+  const navigate = useNavigate();  
+
+  const logout = () => {
+    // Remove stored auth data
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+
+    setUserName(null);
+    
+    // Redirect to login page
+    navigate('/');
+  };
 
   // On component mount, check localStorage for userId
   useEffect(() => {
@@ -55,7 +68,9 @@ function Chat() {
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
       <h1>Chat with Advice Assistant</h1>
-
+    <div>
+      <button onClick={logout}> Log out </button>
+    </div>
       <div
         style={{
           border: "1px solid #ccc",
@@ -101,6 +116,7 @@ function Chat() {
         {answerLoading ? "Loading..." : "Ask"}
       </button>
     </div>
+
   );
 }
 
