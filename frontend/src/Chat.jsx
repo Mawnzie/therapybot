@@ -4,22 +4,17 @@ import axios from "axios";
 function Chat() {
   const [question, setQuestion] = useState("");
   const [chatHistory, setChatHistory] = useState([]); // full conversation
-  const [userId, setUserId] = useState(null); // comes from login or localStorage
   const [answerLoading, setAnswerLoading] = useState(false);
+  const [userName, setUserName] = useState('');
 
   // On component mount, check localStorage for userId
   useEffect(() => {
-    let storedUserId = localStorage.getItem("user_id");
-    if (!storedUserId) {
-      // Generate a new one for demonstration (replace with login in production)
-      storedUserId = "user_" + Math.random().toString(36).substring(2, 10);
-      localStorage.setItem("user_id", storedUserId);
-    }
-    //setUserId("mans");
-    setUserId(storedUserId);
+    let storedUserName = localStorage.getItem("username");
+    
+    setUserName(storedUserName);
 
     // Optionally, fetch past conversation for this user
-    fetchHistory(storedUserId);
+    fetchHistory(storedUserName);
   }, []);
 
   // Fetch past conversation from backend
@@ -39,9 +34,9 @@ function Chat() {
     try {
       const response = await axios.post("http://127.0.0.1:8000/chat/query", {
         question,
-        user_id: userId,
+        user_id: userName,
       });
-      console.log("userid:",userId);
+      console.log("userid:",userName);
       const newTurn = { question, answer: response.data.answer };
       setChatHistory((prev) => [...prev, newTurn]);
       setQuestion("");

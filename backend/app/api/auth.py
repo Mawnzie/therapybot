@@ -24,7 +24,14 @@ router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
-
+def get_current_user(token: str = Depends(oauth2_scheme)):
+    user = verify_token(token)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication credentials",
+        )
+    return user  # usually a dict or Pydantic model
 
 #Dependency
 def get_db():
