@@ -42,6 +42,7 @@ function Login() {
                 console.log("Reached this point");
                 const data = await response.json();
                 localStorage.setItem('token', data.access_token);
+                localStorage.setItem('username', username);
                 navigate('/chat');
             } else {
                 const errorData = await response.json();
