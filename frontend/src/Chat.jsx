@@ -1,35 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Login from './Login';
-import Chat from './Chat';
-import ProtectedPage from './Protected';
-
-function App() {
-
-
-
-  return (
-
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/protected" element={<ProtectedPage />} />
-
-      </Routes>
-    </Router>
-
-  
-
-  );
-}
-export default App;
-
-/*
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function App() {
+function Chat() {
   const [question, setQuestion] = useState("");
   const [chatHistory, setChatHistory] = useState([]); // full conversation
   const [userId, setUserId] = useState(null); // comes from login or localStorage
@@ -132,5 +104,4 @@ function App() {
   );
 }
 
-export default App;
-*/
+export default Chat;
