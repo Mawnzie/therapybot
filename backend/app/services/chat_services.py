@@ -84,20 +84,7 @@ def get_conversation_history(user_id: str) ->List[Dict[str, str]]:
     # Build conversation string
     conversation_text = []
     for doc, meta in entries:
-        conversation_text.append({"Context": doc, "Response": meta.get('answer','')})
-    
-    """
-    conversation_text: List[ConversationItem] = []
-    for doc, meta in entries:
-        
-        conversation_text.append(
-            ConversationItem(
-                Context=str(doc),  # ensure it's a string
-                Response=str(meta.get("answer", ""))  # ensure it's a string
-            )
-        )
-    """
-        
+        conversation_text.append({"Context": doc, "Response": meta.get('answer','')})    
 
 
     return conversation_text

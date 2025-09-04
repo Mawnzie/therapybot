@@ -19,3 +19,7 @@ class QueryRequest(BaseModel):
 class ConversationItem(BaseModel):
     Context: str
     Response: str
+
+
+class DeleteAccountRequest(BaseModel):
+    password: str

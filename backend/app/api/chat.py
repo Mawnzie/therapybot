@@ -18,24 +18,17 @@ router = APIRouter()
 
 
 @router.post("/query")
-async def query_db(request: QueryRequest):
+def query_db(request: QueryRequest):
     answer_text = handle_query(request.user_id, request.question)
     return {"answer": answer_text}
 
 
 @router.get("/history/{user_id}")
-async def fetch_history(user_id: str, current_user: dict = Depends(get_current_user)):
+def fetch_history(user_id: str, current_user: dict = Depends(get_current_user)):
     if current_user["username"] != user_id:
         raise HTTPException(status_code=403, detail="Not authorized to view this history")
     
     result = get_conversation_history(user_id)
     return result
 
-"""
-@router.get("/history/{user_id}")
-async def fetch_history(user_id: str):
-    result = get_conversation_history(user_id)
-    return result
-
-"""
 

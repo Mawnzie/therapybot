@@ -11,8 +11,8 @@ function Chat() {
 
   const logout = () => {
     // Remove stored auth data
-    localStorage.removeItem('token');
-    localStorage.removeItem('username');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
 
     setUserName(null);
     
@@ -22,10 +22,10 @@ function Chat() {
 
   // On component mount, check localStorage for userId
   useEffect(() => {
-    let storedUserName = localStorage.getItem("username");
+    let storedUserName = sessionStorage.getItem("username");
     
     setUserName(storedUserName);
-    const token = localStorage.getItem("token"); // get token
+    const token = sessionStorage.getItem("token"); // get token
 
     // Optionally, fetch past conversation for this user
     fetchHistory(storedUserName,token);

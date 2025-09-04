@@ -3,7 +3,6 @@ from chromadb.utils import embedding_functions
 from app.core.config import OPENAI_API_KEY
 import os
 
-print(f'\nInsice chroma_client.py. WD: {os.getcwd()}\n')
 
 chroma_client = chromadb.PersistentClient(path="app/db/chroma_db")
 

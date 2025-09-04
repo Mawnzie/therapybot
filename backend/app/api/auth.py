@@ -9,11 +9,10 @@ from app.db.database import SessionLocal, engine
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
-from app.db.schemas import UserCreate, UserRead
+from app.db.schemas import UserCreate, UserRead, DeleteAccountRequest
 
 from fastapi import APIRouter
 from typing import List, Dict
-
 
 from app.core.config import SECRET_KEY, ALGORITHM,ACCESS_TOKEN_EXPIRE_MINUTES
 
@@ -120,3 +119,42 @@ def verify_token(token: str = Depends(oauth2_scheme)):
         return {"username": username, "valid": True}
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
+
+
+def delete_user(db: Session, username: str) -> bool:
+    """Delete a user by username. Returns True if deleted, False if not found."""
+    user = db.query(User).filter(User.username == username).first()
+    if user:
+        db.delete(user)
+        db.commit()
+        return True
+    return False
+
+
+
+@router.delete("/users/{username}")
+def delete_account(username: str, request: DeleteAccountRequest, db: Session = Depends(get_db)):
+    user = authenticate_user(username, request.password, db)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+    
+    deleted = delete_user(db, username)
+    if deleted:
+        return {"detail": f"User {username} deleted successfully"}
+    else:
+        raise HTTPException(status_code=404, detail="User not found")
+
+"""
+@router.delete("/users/{username}")
+def delete_account(username: str, password: str, db: Session = Depends(get_db)):
+    # Authenticate user
+    user = authenticate_user(username, password, db)
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+    
+    deleted = delete_user(db, username)
+    if deleted:
+        return {"detail": f"User {username} deleted successfully"}
+    else:
+        raise HTTPException(status_code=404, detail="User not found")
+"""
