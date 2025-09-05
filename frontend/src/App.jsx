@@ -4,13 +4,15 @@ import Login from "./Login";
 import Chat from "./Chat";
 import DeleteAccount from "./DeleteAccount";
 import ProtectedRoute from "./ProtectedRoute";
+import Register from './Register';
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Public */}
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         {/* Protected */}
         <Route

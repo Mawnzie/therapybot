@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -28,21 +28,23 @@ function Login() {
         formDetails.append('password', password);
 
         try {
-            const response = await fetch('http://localhost:8000/auth/token', {
+            const response = await fetch('http://localhost:8000/auth/register', {
                 method: 'POST',
                 headers: {
-                    'Content-Type' : 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                 },
-                body: formDetails,
+                body: JSON.stringify({
+                    username,
+                    password,
+                }),
             });
+
 
             setLoading(false);
 
             if (response.ok) {
                 const data = await response.json();
-                sessionStorage.setItem('token', data.access_token);
-                sessionStorage.setItem('username', username);
-                navigate('/chat');
+                navigate('/login');
             } else {
                 const errorData = await response.json();
                 setError(errorData.detail || 'Authentication failed!');
@@ -54,32 +56,33 @@ function Login() {
         }
     };
 
-    return(
+    return (
+    <div>
+        <form onSubmit={handleSubmit}>
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label> Username:</label>
-                    <input 
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Loggin in...' : 'Login'}
-                </button>
-                {error && <p style={{ color: 'red'}}> {error}</p>}
-            </form>
+            <label>Username:</label>
+            <input 
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            />
         </div>
+        <div>
+            <label>Password:</label>
+            <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            />
+        </div>
+        <button type="submit" disabled={loading}>
+            {loading ? 'Registering...' : 'Register'}
+        </button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        </form>
+    </div>
     );
+
 }
 
-export default Login;
+export default Register;

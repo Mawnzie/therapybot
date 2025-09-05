@@ -2,6 +2,8 @@
 
 chroma_db/
 
+app.db
+
 venv/
 
 config.py

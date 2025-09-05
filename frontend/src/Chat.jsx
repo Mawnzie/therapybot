@@ -9,6 +9,11 @@ function Chat() {
   const [userName, setUserName] = useState(null);
   const navigate = useNavigate();  
 
+
+  const goToDeleteAccount = () => {
+    navigate("/deleteaccount"); // navigate to your DeleteAccount page
+  };
+
   const logout = () => {
     // Remove stored auth data
     sessionStorage.removeItem('token');
@@ -68,9 +73,6 @@ function Chat() {
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
       <h1>Chat with Advice Assistant</h1>
-    <div>
-      <button onClick={logout}> Log out </button>
-    </div>
       <div
         style={{
           border: "1px solid #ccc",
@@ -115,6 +117,10 @@ function Chat() {
       >
         {answerLoading ? "Loading..." : "Ask"}
       </button>
+      <div>
+        <button onClick={logout}> Log out </button>
+        <button onClick={goToDeleteAccount}> Delete account </button>
+    </div>
     </div>
 
   );
