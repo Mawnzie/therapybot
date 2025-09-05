@@ -32,3 +32,35 @@ def fetch_history(user_id: str, current_user: dict = Depends(get_current_user)):
     return result
 
 
+
+@router.get("/users")
+def fetch_users():
+    # Get all metadata (you may want to limit the number of documents if large)
+    all_metadatas = conversation_collection.get(include=["metadatas"])["metadatas"]
+    users = []
+    for entry in all_metadatas:
+        users.append(entry['user_id'])
+
+
+    return set(users)
+
+@router.delete("/users/{user_id_to_delete}")
+def delete_user_history(user_id_to_delete: str):
+    # Fetch all metadata along with document IDs
+    results = conversation_collection.get(include=["metadatas"])
+    all_metadatas = results["metadatas"]
+    all_ids = results["ids"]   # still available, even if not in include
+
+    # Collect IDs of documents that belong to the user
+    ids_to_delete = [
+        doc_id 
+        for doc_id, meta in zip(all_ids, all_metadatas)
+        if meta.get("user_id") == user_id_to_delete
+    ]
+
+    if ids_to_delete:
+        # Delete documents by ID
+        conversation_collection.delete(ids=ids_to_delete)
+        print(f"Deleted {len(ids_to_delete)} documents for user {user_id_to_delete}.")
+    else:
+        print(f"No documents found for user {user_id_to_delete}.")

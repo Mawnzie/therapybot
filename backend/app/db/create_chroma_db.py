@@ -31,7 +31,8 @@ ids = []
 documents = []
 metadatas = []
 
-
+print("file path:", file_path)
+print(f"\n cwd: {os.getcwd()}\n")
 
 with open(file_path, "r", encoding="utf-8") as f:
     for idx,line in enumerate(f):
