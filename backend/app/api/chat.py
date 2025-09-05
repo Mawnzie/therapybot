@@ -12,7 +12,8 @@ router = APIRouter()
 from fastapi import APIRouter
 from typing import List, Dict
 from app.services.chat_services import handle_query, get_conversation_history
-from app.api.auth import get_current_user
+from app.api.auth import get_current_user, authenticate_user, get_db, Session
+from app.db.schemas import HistoryRequest
 
 router = APIRouter()
 
@@ -29,6 +30,17 @@ def fetch_history(user_id: str, current_user: dict = Depends(get_current_user)):
         raise HTTPException(status_code=403, detail="Not authorized to view this history")
     
     result = get_conversation_history(user_id)
+    return result
+
+@router.post("/history_with_password")
+def fetch_history_with_password(req: HistoryRequest, db: Session = Depends(get_db)):
+    # Authenticate the user with username and password
+    user = authenticate_user(req.user_id, req.password, db)
+    if not user:
+        raise HTTPException(status_code=403, detail="Incorrect username or password")
+
+    # Fetch conversation history
+    result = get_conversation_history(req.user_id)
     return result
 
 

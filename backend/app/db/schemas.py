@@ -20,6 +20,10 @@ class ConversationItem(BaseModel):
     Context: str
     Response: str
 
+class HistoryRequest(BaseModel):
+    user_id: str
+    password: str
+
 
 class DeleteAccountRequest(BaseModel):
     password: str

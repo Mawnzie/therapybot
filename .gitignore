@@ -2,7 +2,7 @@
 
 chroma_db/
 
-app.db
+backend/app/db/app.db
 
 venv/
 
