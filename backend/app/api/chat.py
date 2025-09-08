@@ -56,8 +56,33 @@ def fetch_users():
 
     return set(users)
 
+"""
 @router.delete("/users/{user_id_to_delete}")
 def delete_user_history(user_id_to_delete: str):
+    # Fetch all metadata along with document IDs
+    results = conversation_collection.get(include=["metadatas"])
+    all_metadatas = results["metadatas"]
+    all_ids = results["ids"]   # still available, even if not in include
+
+    # Collect IDs of documents that belong to the user
+    ids_to_delete = [
+        doc_id 
+        for doc_id, meta in zip(all_ids, all_metadatas)
+        if meta.get("user_id") == user_id_to_delete
+    ]
+
+    if ids_to_delete:
+        # Delete documents by ID
+        conversation_collection.delete(ids=ids_to_delete)
+        print(f"Deleted {len(ids_to_delete)} documents for user {user_id_to_delete}.")
+    else:
+        print(f"No documents found for user {user_id_to_delete}.")
+"""
+
+@router.delete("/users/{user_id_to_delete}")
+def delete_user_history(user_id_to_delete: str, current_user: dict = Depends(get_current_user)):
+    if current_user["username"] != user_id_to_delete:
+            raise HTTPException(status_code=403, detail="Not authorized to delete this history")
     # Fetch all metadata along with document IDs
     results = conversation_collection.get(include=["metadatas"])
     all_metadatas = results["metadatas"]

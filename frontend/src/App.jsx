@@ -5,6 +5,7 @@ import Chat from "./Chat";
 import DeleteAccount from "./DeleteAccount";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from './Register';
+import History from './History';
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
           element={
             <ProtectedRoute>
               <DeleteAccount />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <ProtectedRoute>
+              <History />
             </ProtectedRoute>
           }
         />

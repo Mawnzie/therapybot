@@ -14,6 +14,10 @@ function Chat() {
     navigate("/deleteaccount"); // navigate to your DeleteAccount page
   };
 
+  const goToHistory= () => {
+    navigate("/history"); // navigate to your DeleteAccount page
+  };
+
   const logout = () => {
     // Remove stored auth data
     sessionStorage.removeItem('token');
@@ -120,6 +124,8 @@ function Chat() {
       <div>
         <button onClick={logout}> Log out </button>
         <button onClick={goToDeleteAccount}> Delete account </button>
+        <button onClick={goToHistory}> Manage chat history </button>
+
     </div>
     </div>
 

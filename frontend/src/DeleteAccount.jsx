@@ -31,7 +31,6 @@ function DeleteAccount() {
         `http://localhost:8000/chat/users/${username}`,
         {
           headers: { Authorization: `Bearer ${token}` },
-          data: { password },
         }
       );
 
