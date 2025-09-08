@@ -6,6 +6,7 @@ import DeleteAccount from "./DeleteAccount";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from './Register';
 import History from './History';
+import Welcome from './Welcome'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         {/* Public */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Welcome />} />
+
 
         {/* Protected */}
         <Route
