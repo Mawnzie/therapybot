@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import NavBar from'./Navbar';
+import { lighten, modularScale } from 'polished'
+import './Chat.css';
 
 function Chat() {
   const [question, setQuestion] = useState("");
@@ -75,20 +78,11 @@ function Chat() {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h1>Chat with Advice Assistant</h1>
-      <div
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-          minHeight: "300px",
-          maxHeight: "500px",
-          overflowY: "auto",
-          marginBottom: "10px",
-          borderRadius: "8px",
-          backgroundColor: "#f9f9f9",
-        }}
-      >
+    <div style={{ padding: "80px 20px 20px", maxWidth: "600px", margin: "auto" }}>
+      <NavBar items={[["/deleteaccount", "Delete Account"],["/history","Manage Chat History"]]} />
+      <div>
+      <h1>Counsel Chat</h1>
+      <div className="chat-window" >
         {chatHistory.length === 0 && <p>No conversation yet.</p>}
         {chatHistory
           .filter(turn => turn.question || turn.answer) // only render non-empty turns
@@ -116,16 +110,15 @@ function Chat() {
           marginLeft: "5px",
           borderRadius: "5px",
           cursor: "pointer",
+          background: "linear-gradient(90deg, #28a745, #20c997)", // same gradient
+          color: "white",
+          border: "none",
+          boxShadow: "0 4px 6px rgba(32, 105, 70, 0.5)" // darker green shadow
         }}
         disabled={answerLoading}
       >
         {answerLoading ? "Loading..." : "Ask"}
       </button>
-      <div>
-        <button onClick={logout}> Log out </button>
-        <button onClick={goToDeleteAccount}> Delete account </button>
-        <button onClick={goToHistory}> Manage chat history </button>
-
     </div>
     </div>
 

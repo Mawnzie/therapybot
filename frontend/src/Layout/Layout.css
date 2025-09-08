@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Bitcount+Grid+Single:wght@100..900&family=Coiny&family=Poiret+One&display=swap');
+
+
+:root {
+  --dark: #101315;
+  --light: #eeeeee;
+  --gradient: linear-gradient(15deg, #04ea00, #1abbdb);
+  --gradient2: linear-gradient(15deg, #4fe5f9, #0aa0f0);
+  --gradient3: linear-gradient(15deg, #03a801, #137c91);
+
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Coiny", system-ui;
+  background: var(--gradient);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* Optional: keeps gradient fixed when scrolling */
+  min-height: 100vh; /* Ensures full vertical coverage */
+}
+
+.navbar{
+  background: var(--gradient3);
+  font-family: "Coiny", system-ui;
+
+}
+
+
+h2{
+    color: rgb(58, 142, 47);
+    text-align: center;
+    font-family: "Coiny", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+    }
+
+
+p{
+    color: rgb(65, 78, 61);
+    text-align: center;
+    font-family: "Poiret", sans-serif;
+    font-weight: 100;
+    font-size: "small";
+    }
+
+ul {
+    color: rgb(212, 212, 236);
+    text-align: left;
+    font-family: "Coiny", sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.5rem, 2vw + 1rem, 1rem);
+    list-style-type: none;
+    padding: 0;
+    list-style-position: inside;
+
+    /* New lines added to center the list */
+    max-width: 600px;
+    margin: 0 auto;
+}
+li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically (optional) */
+}
+
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* ensure it's above other elements */
+}
+
+
+
+
+.modal {
+  position: relative;
+  width: clamp(50%, 700px, 90%);
+  max-height: 80vh;         /* limit height to viewport */
+  overflow-y: auto;         /* enables scroll if needed */
+  background: var(--gradient4);
+  margin: auto;
+  padding: 0 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically (optional) */
+}
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.button-row {
+  display: flex;
+  gap: 1rem; /* adds space between buttons */
+  justify-content: center; /* center them horizontally */
+  margin-top: 1rem;
+}
+.blinking-cursor {
+  display: inline-block;
+  animation: blink 1s step-start infinite;
+  font-family: 'Barrio', sans-serif;  /* Match the header font */
+  font-weight: normal;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  position: relative;
+  top: -6px; /* Fine-tune this if still slightly misaligned */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.25rem 0;
+  background-color: rgba(255, 255, 255,0.1); /* thin transparent bar */
+  color: rgb(212, 212, 236);
+  text-align: center;
+  font-size: 1.25rem;
+  z-index: 1000;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;      /* stack vertically */
+  justify-content: center;     /* vertical centering */
+  align-items: center;         /* horizontal centering */
+  height: 100vh;               /* full viewport height */
+  gap: 20px;                   /* spacing between heading and buttons */
+  background: var(--gradient);
+
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 10px;                   /* spacing between buttons */
+}
+
+.welcome-container h1 {
+  color: rgb(58, 142, 47);
+  font-family: "Coiny", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+  text-align: center;
+}
+
+.welcome-container button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

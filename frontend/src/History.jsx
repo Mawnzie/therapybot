@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import './Chat.css';
+import NavBar from './Navbar'
 
 function History() {
   const [chatHistory, setChatHistory] = useState([]); // full conversation
@@ -72,19 +74,11 @@ function History() {
 
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
+    <div style={{ padding: "80px 20px 20px", maxWidth: "600px", margin: "auto" }}>
+    <NavBar items={[["/deleteaccount", "Delete Account"],["/chat","Back to Chat"]]} />
+
       <h1>Chat History</h1>
-      <div
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-          minHeight: "300px",
-          maxHeight: "500px",
-          overflowY: "auto",
-          marginBottom: "10px",
-          borderRadius: "8px",
-          backgroundColor: "#f9f9f9",
-        }}
+      <div className="chat-window"
       >
         {chatHistory.length === 0 && <p>No history to show.</p>}
         {chatHistory
@@ -96,15 +90,21 @@ function History() {
             </div>
         ))}
       </div>
-
-     
-      <div>
-        <button onClick={logout}> Log out </button>
-        <button onClick={deleteHistory}> Delete history </button>
-         {message && <p>{message}</p>}
-        <button onClick={goToChat}> Back to chat </button>
-
-    </div>
+       <button
+        onClick={deleteHistory}
+        style={{
+          padding: "8px 15px",
+          marginLeft: "5px",
+          borderRadius: "5px",
+          cursor: "pointer",
+          background: "linear-gradient(90deg, #28a745, #20c997)", // same gradient
+          color: "white",
+          border: "none",
+          boxShadow: "0 4px 6px rgba(32, 105, 70, 0.5)" // darker green shadow
+        }}
+      >
+        Delete history
+      </button>
     </div>
 
   );
