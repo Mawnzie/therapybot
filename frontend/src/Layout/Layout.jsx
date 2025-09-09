@@ -3,7 +3,7 @@ import './Layout.css';
 
 function Layout({ children }) {
     return (
-        <div className="layout">
+        <div className="welcome-container">
         {children}
         </div>
     );

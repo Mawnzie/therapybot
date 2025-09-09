@@ -28,6 +28,14 @@ body {
 
 }
 
+h1{
+    color:  black;
+    text-align: center;
+    font-family: "Coiny", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+    }
+
 
 h2{
     color: rgb(58, 142, 47);
@@ -60,6 +68,7 @@ ul {
     max-width: 600px;
     margin: 0 auto;
 }
+
 li {
     margin: 0.5rem 0;
     padding: 0.5rem;
@@ -184,9 +193,24 @@ li {
   text-align: center;
 }
 
-.welcome-container button {
-  padding: 10px 20px;
+
+
+.welcome-container input {
+  width: 80%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
   font-size: 1rem;
+}
+
+.welcome-container button {
+  padding: 8px 15px;
+  margin-left: 5px;
   border-radius: 5px;
   cursor: pointer;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px rgba(32, 105, 70, 0.5);
+  transition: transform 0.1s ease-in-out;
 }

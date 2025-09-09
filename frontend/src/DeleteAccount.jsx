@@ -56,31 +56,19 @@ function DeleteAccount() {
 
   return (
     <Layout> 
-    <div style={{ padding: "80px 20px 20px", maxWidth: "600px", margin: "auto" }}>
       <NavBar items={[["/chat","Back to Chat"]]} />
-      <h1>Delete Account for {username}</h1>
-      <input
-        type="password"
-        placeholder="Enter password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-       
-      />
-      <button onClick={handleDelete} 
-        style={{
-        padding: "8px 15px",
-        marginLeft: "5px",
-        borderRadius: "5px",
-        cursor: "pointer",
-        background: "linear-gradient(90deg, #28a745, #20c997)", // same gradient
-        color: "white",
-        border: "none",
-        boxShadow: "0 4px 6px rgba(32, 105, 70, 0.5)" // darker green shadow
-      }}
-      >Delete Account</button>
-      {message && <p>{message}</p>}
-
-    </div>
+        <h1>Delete Account for {username}</h1>
+          <div className="button-row">
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            
+            />
+            <button onClick={handleDelete}> Delete </button>
+            {message && <p>{message}</p>}
+          </div>
     </Layout>
   );
 }
