@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Bitcount+Grid+Single:wght@100..900&family=Coiny&family=Poiret+One&display=swap');
+
+
+:root {
+  --dark: #101315;
+  --light: #eeeeee;
+  --gradient: linear-gradient(15deg, #04ea00, #1abbdb);
+  --gradient2: linear-gradient(15deg, #4fe5f9, #0aa0f0);
+  --gradient3: linear-gradient(15deg, #03a801, #137c91);
+
+  font-size: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poiret", system-ui;
+  background: var(--gradient);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* Optional: keeps gradient fixed when scrolling */
+  min-height: 100vh; /* Ensures full vertical coverage */
+}
+
+.navbar{
+  background: var(--gradient3);
+  font-family: "Coiny", system-ui;
+
+}
+
+.custom-offcanvas {
+  background: var(--gradient3);
+  font-family: "Coiny", system-ui;
+  color: white;
+}
+
+
+.button-row {
+  display: flex;
+  gap: 1rem; /* adds space between buttons */
+  justify-content: center; /* center them horizontally */
+  margin-top: 1rem;
+  align-items: center;
+}
+
+
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;      /* stack vertically */
+  justify-content: center;     /* vertical centering */
+  align-items: center;         /* horizontal centering */
+  height: 100vh;               /* full viewport height */
+  gap: 20px;                   /* spacing between heading and buttons */
+  background: var(--gradient);
+
+}
+
+
+.welcome-buttons {
+  display: flex;
+  gap: 10px;                   /* spacing between buttons */
+}
+
+.welcome-container h1 {
+  margin-top: 5rem;
+  color: rgb(58, 142, 47);
+  font-family: "Coiny", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+  text-align: center;
+}
+
+
+
+.welcome-container input {
+  margin-top: 10px;
+  width: 80%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.welcome-container button {
+  justify-content: center;
+  padding: 8px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px rgba(32, 105, 70, 0.5);
+  transition: transform 0.1s ease-in-out;
+  font-family: "Coiny", system-ui;
+
+}
+
+
+.welcome-container label {
+  color: rgb(58, 142, 47);
+  font-family: "Coiny", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.chat-window {
+  background: linear-gradient(15deg, #70e66e, #63cade); /* same as navbar */
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%; 
+  max-width: 600px;        
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;      /* scroll vertically if content too long */
+  overflow-x: hidden;    /* prevent horizontal scroll */   
+  border-radius: 8px;
+}
+
+.chat-wrapper{
+  padding: 10px;
+}
+

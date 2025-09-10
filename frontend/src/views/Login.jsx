@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Layout/Layout.css'
+import Layout from '../components/Layout/Layout';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -56,30 +56,13 @@ function Login() {
     };
 
     return(
+        <Layout>
         <div
-            style={{
-            display: "flex",
-            justifyContent: "center", // horizontal centering
-            alignItems: "center",     // vertical centering
-            height: "100vh",          // full viewport height
-            padding: "20px",
-            }}
+        
         >
             <form
             onSubmit={handleSubmit}
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-                padding: "20px",
-                borderRadius: "8px",
-                background: "linear-gradient(90deg, #28a745, #20c997)",
-                color: "white",
-                boxShadow: "0 4px 6px rgba(32, 105, 70, 0.5)",
-                minWidth: "300px",
-                maxWidth: "400px",
-                width: "100%",
-            }}
+        
             >
                 <div>
                     <label> Username:</label>
@@ -87,7 +70,6 @@ function Login() {
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        style={{ width: "100%", padding: "8px", borderRadius: "4px" }}
 
                     />
                 </div>
@@ -97,27 +79,18 @@ function Login() {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        style={{ width: "100%", padding: "8px", borderRadius: "4px" }}
 
                     />
                 </div>
                 <button type="submit" disabled={loading}
-                style={{
-                    padding: "8px 15px",
-                    marginLeft: "5px",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    background: "linear-gradient(90deg, #28a745, #20c997)", // same gradient
-                    color: "white",
-                    border: "none",
-                    boxShadow: "0 4px 6px rgba(32, 105, 70, 0.5)" // darker green shadow
-                    }}
+                
                 >
                     {loading ? 'Loggin in...' : 'Login'}
                 </button>
                 {error && <p style={{ color: 'red'}}> {error}</p>}
             </form>
         </div>
+        </Layout>
     );
 }
 

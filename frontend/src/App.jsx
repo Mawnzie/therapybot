@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Chat from "./Chat";
-import DeleteAccount from "./DeleteAccount";
-import ProtectedRoute from "./ProtectedRoute";
-import Register from './Register';
-import History from './History';
-import Welcome from './Welcome'
+import Login from "./views/Login";
+import Chat from "./views/Chat";
+import DeleteAccount from "./views/DeleteAccount";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Register from './views/Register';
+import History from './views/History';
+import Welcome from './views/Welcome'
 
 function App() {
   return (
@@ -52,34 +52,3 @@ export default App;
 
 
 
-
-/*import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Login from './Login';
-import Chat from './Chat';
-import ProtectedPage from './Protected';
-import DeleteAccount from './DeleteAccount';
-
-function App() {
-
-
-
-  return (
-
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/protected" element={<ProtectedPage />} />
-        <Route path="/deleteaccount" element={<DeleteAccount />} />
-
-      </Routes>
-    </Router>
-
-  
-
-  );
-}
-export default App;
-
-*/

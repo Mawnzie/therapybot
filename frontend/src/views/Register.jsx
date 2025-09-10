@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout/Layout';
 
 function Register() {
     const [username, setUsername] = useState('');
@@ -57,6 +58,7 @@ function Register() {
     };
 
     return (
+    <Layout>
     <div>
         <form onSubmit={handleSubmit}>
         <div>
@@ -81,6 +83,7 @@ function Register() {
         {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
     </div>
+    </Layout>
     );
 
 }
