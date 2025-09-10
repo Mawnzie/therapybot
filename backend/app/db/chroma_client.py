@@ -18,3 +18,7 @@ advice_collection = chroma_client.get_or_create_collection(
 conversation_collection = chroma_client.get_or_create_collection(
     name="conversation_memory", embedding_function=openai_ef
 )
+
+question_collection = chroma_client.get_or_create_collection(
+    name="conversation_memory", embedding_function=openai_ef
+)

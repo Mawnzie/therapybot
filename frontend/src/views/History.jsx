@@ -75,7 +75,7 @@ function History() {
 
   return (
     <Layout>
-    <div >
+    <div className="chat-wrapper">
     <NavBar items={[["/deleteaccount", "Delete Account"],["/chat","Back to Chat"]]} />
 
       <h1>Chat History</h1>
