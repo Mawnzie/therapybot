@@ -65,3 +65,5 @@ for i in range(0, len(documents), batch_size):
     print(f'Added batch {i} to collection')
 
 print(f'\nAdded {len(documents)} entries to collection')
+
+print(f'\nCollections in the db: {chroma_client.list_collections()}\n')

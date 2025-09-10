@@ -1,0 +1,206 @@
+[
+  {
+    "Context": "I feel like I’m failing at everything",
+    "Response": "Can you think of a recent situation where you felt this way? What happened?"
+  },
+  {
+    "Context": "I’m always anxious about the future",
+    "Response": "What specific thoughts come to mind when you worry about the future?"
+  },
+  {
+    "Context": "I feel so alone even when I’m with people",
+    "Response": "Can you describe a recent moment when you felt that loneliness?"
+  },
+  {
+    "Context": "I can’t stop comparing myself to others",
+    "Response": "What usually triggers these comparisons, and how do they make you feel?"
+  },
+  {
+    "Context": "I feel guilty all the time",
+    "Response": "Can you describe a situation where you felt guilty recently? What thoughts were running through your mind?"
+  },
+  {
+    "Context": "I get angry at small things",
+    "Response": "Can you recall the last time you felt irritated? What triggered it and how did you respond?"
+  },
+  {
+    "Context": "I don’t feel motivated to do anything",
+    "Response": "When was the last time you felt even a small spark of motivation? What was different then?"
+  },
+  {
+    "Context": "I feel overwhelmed by responsibilities",
+    "Response": "Which specific tasks or situations feel the most overwhelming right now?"
+  },
+  {
+    "Context": "I can’t focus on anything",
+    "Response": "Are there particular times or activities where it’s harder to concentrate? What do you notice?"
+  },
+  {
+    "Context": "I hate the way I look",
+    "Response": "Can you describe what specifically about your appearance bothers you the most?"
+  },
+  {
+    "Context": "I feel like nobody understands me",
+    "Response": "Can you give an example of a recent situation where you felt misunderstood?"
+  },
+  {
+    "Context": "I feel stuck in my career",
+    "Response": "What aspects of your work feel most limiting or unsatisfying?"
+  },
+  {
+    "Context": "I’m afraid of making mistakes",
+    "Response": "Can you think of a recent time you felt this fear? What did you do about it?"
+  },
+  {
+    "Context": "I feel anxious in social situations",
+    "Response": "What is it specifically about social interactions that triggers your anxiety?"
+  },
+  {
+    "Context": "I have trouble sleeping",
+    "Response": "What thoughts or feelings usually come up before you go to bed?"
+  },
+  {
+    "Context": "I feel like I’m not good enough",
+    "Response": "Can you think of a moment recently when you felt this way? What happened?"
+  },
+  {
+    "Context": "I get sad for no reason",
+    "Response": "Can you describe the moment you noticed this sadness? What was happening around you?"
+  },
+  {
+    "Context": "I feel lonely even with friends",
+    "Response": "What is different about those moments when you feel lonely compared to when you don’t?"
+  },
+  {
+    "Context": "I procrastinate a lot",
+    "Response": "What usually comes to mind right before you put something off?"
+  },
+  {
+    "Context": "I feel anxious about my relationships",
+    "Response": "Can you identify a recent situation where your anxiety came up? What were the thoughts you had?"
+  },
+  {
+    "Context": "I’m not sure what I want in life",
+    "Response": "What activities or experiences have brought you joy or satisfaction recently?"
+  },
+  {
+    "Context": "I feel hopeless sometimes",
+    "Response": "Can you describe a recent moment when you felt this hopelessness? What was going on?"
+  },
+  {
+    "Context": "I can’t stop overthinking",
+    "Response": "When do you notice your thoughts spinning the most? What are they usually about?"
+  },
+  {
+    "Context": "I feel rejected easily",
+    "Response": "Can you give an example of a time you felt rejected recently? How did you react?"
+  },
+  {
+    "Context": "I get nervous when I have to speak up",
+    "Response": "Can you describe a recent situation where you had to speak up? What thoughts were running through your mind?"
+  },
+  {
+    "Context": "I feel anxious about money",
+    "Response": "What specific aspects of your financial situation make you anxious?"
+  },
+  {
+    "Context": "I feel overwhelmed by emotions",
+    "Response": "Which emotions are strongest right now, and when do they usually appear?"
+  },
+  {
+    "Context": "I feel like I can’t trust anyone",
+    "Response": "Can you recall a recent situation where trusting someone felt difficult? What happened?"
+  },
+  {
+    "Context": "I feel disconnected from my family",
+    "Response": "What moments make you feel the most distant from them? What do you wish was different?"
+  },
+  {
+    "Context": "I feel unappreciated at work",
+    "Response": "Can you describe a recent moment when you felt this lack of appreciation?"
+  },
+  {
+    "Context": "I feel anxious leaving the house",
+    "Response": "What specific thoughts come up when you try to leave? How does it feel in your body?"
+  },
+  {
+    "Context": "I feel like I’m constantly failing",
+    "Response": "Can you describe a recent situation where you felt like you failed? What was the outcome?"
+  },
+  {
+    "Context": "I get jealous easily",
+    "Response": "Can you recall a recent moment when you felt jealous? What triggered it?"
+  },
+  {
+    "Context": "I feel like I’m not living up to my potential",
+    "Response": "Can you describe a time you felt successful or capable? How did that feel?"
+  },
+  {
+    "Context": "I feel anxious about my health",
+    "Response": "What thoughts or scenarios usually trigger this anxiety about your health?"
+  },
+  {
+    "Context": "I feel unmotivated to exercise",
+    "Response": "What usually stops you from exercising? Are there moments when it feels easier?"
+  },
+  {
+    "Context": "I feel like I’m always disappointing people",
+    "Response": "Can you recall a recent situation where you felt you disappointed someone? What thoughts did you have?"
+  },
+  {
+    "Context": "I feel guilty about my past",
+    "Response": "Can you describe a specific memory or situation that comes up when you feel guilty?"
+  },
+  {
+    "Context": "I feel like I’m constantly criticized",
+    "Response": "Can you give an example of a recent criticism that stuck with you? How did it affect you?"
+  },
+  {
+    "Context": "I feel overwhelmed by my responsibilities at home",
+    "Response": "Which tasks or duties feel the most heavy or stressful right now?"
+  },
+  {
+    "Context": "I feel anxious in new situations",
+    "Response": "What about new situations makes you feel anxious? Can you give an example?"
+  },
+  {
+    "Context": "I feel like I’m not making progress",
+    "Response": "Can you describe a recent step or effort you made, even if it felt small?"
+  },
+  {
+    "Context": "I feel unworthy of love",
+    "Response": "Can you describe moments when you felt cared for or appreciated? How did that feel?"
+  },
+  {
+    "Context": "I feel stressed all the time",
+    "Response": "Which situations or tasks contribute the most to your stress?"
+  },
+  {
+    "Context": "I feel like I’m always overthinking my decisions",
+    "Response": "Can you recall a recent decision you struggled with? What thoughts went through your mind?"
+  },
+  {
+    "Context": "I feel disconnected from myself",
+    "Response": "Can you describe a moment recently when you felt most in touch with your thoughts or feelings?"
+  },
+  {
+    "Context": "I feel anxious about making choices",
+    "Response": "What kinds of choices are hardest for you, and what worries you about them?"
+  },
+  {
+    "Context": "I feel like I don’t belong",
+    "Response": "Can you recall a situation where you felt most out of place? What made it feel that way?"
+  },
+  {
+    "Context": "I feel like I can’t cope with stress",
+    "Response": "Can you describe a recent stressful situation and how you tried to handle it?"
+  },
+  {
+    "Context": "I feel like I’m always sad",
+    "Response": "Can you describe a recent moment of sadness? What was happening around you?"
+  },
+  {
+    "Context": "I feel anxious talking to my boss",
+    "Response": "Can you recall the last time you had to talk to your boss? What was going through your mind?"
+  }
+]
